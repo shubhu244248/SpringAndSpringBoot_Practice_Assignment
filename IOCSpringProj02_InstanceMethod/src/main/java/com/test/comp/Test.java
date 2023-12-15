@@ -8,6 +8,13 @@ public class Test {
 	public Test() {
 		System.out.println("Test : 0 Param constructor");
 	}
+	
+
+	public Test(int a, String b) {
+		System.out.println("Test : 2 Param constructor");
+		this.a = a;
+		this.b = b;
+	}
 
 	@Override
 	public String toString() {
