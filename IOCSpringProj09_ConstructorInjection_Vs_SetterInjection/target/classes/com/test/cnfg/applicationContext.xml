@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="emp1" class="com.test.beans.Employee">
+        <constructor-arg name="empId" value="1001"/>
+        <constructor-arg name="empName" value="Shubham Patil"/>
+        <constructor-arg name="empDeg" value="Software Developer"/>
+        <constructor-arg name="empSal" value="45000"/>
+        </bean>
+        
+        <bean id="emp2" class="com.test.beans.Employee">
+        <constructor-arg name="empId" value="1002"/>
+        <constructor-arg name="empName" value="Akshay Bramhe"/>
+        <constructor-arg name="empDeg" value="Junior Software Developer"/>
+        <constructor-arg name="empSal" value="650000"/>
+        </bean>
+        
+        
+        
+        <bean id="std1" class="com.test.beans.Student">
+        <property name="stdId" value="1001"/>
+        <property name="stdName" value="Shubham Patil"/>
+        <property name="stdAge" value="23"/>
+        <property name="stdClg" value="SVKM IoT, Dhule"/>
+        <property name="stdQualy" value="B Tech Comp"/>
+        </bean>
+        
+         <bean id="std2" class="com.test.beans.Student">
+        <property name="stdId" value="1002"/>
+        <property name="stdName" value="Akshay Bramhe"/>
+       <!--  <property name="stdAge" value="22"/> -->
+        <property name="stdClg" value="SVKM IoT, Dhule"/>
+        <property name="stdQualy" value="B Tech Comp"/>
+        </bean>
+        
+        
+        <bean id="cus1" class="com.test.beans.Customer">
+        <constructor-arg name="cusId" value="1001"/>
+         <constructor-arg name="cusName" value="Shubham Patil"/>
+          <constructor-arg name="cusBillAmt" value="10000"/> 
+          <property name="cusAdd" value="Pune"/>
+         <!--  <property name="cusMob" value="7775093424"/> -->
+        </bean>
+        
+        <bean id="cus2" class="com.test.beans.Customer">
+        <constructor-arg name="cusId" value="1002"/>
+         <constructor-arg name="cusName" value="Akshay Bramhe"/>
+          <constructor-arg name="cusBillAmt" value="30000"/> 
+          <property name="cusAdd" value="NAshik"/>
+          <property name="cusMob" value="7775093424"/>
+        </bean>
+ </beans>
+       
