@@ -8,13 +8,13 @@ import com.nt.beans.A;
 public class CyclicDITest {
 
 	public static void main(String[] args) {
-		// create IOC container
-		DefaultListableBeanFactory factory = new DefaultListableBeanFactory();
-		XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(factory);
+		//create IOC container
+		DefaultListableBeanFactory factory=new DefaultListableBeanFactory();
+		XmlBeanDefinitionReader reader=new XmlBeanDefinitionReader(factory);
 		reader.loadBeanDefinitions("com/nt/cfgs/applicationContext.xml");
-
-		// get Spring bean calss obj
-		A oa = factory.getBean("a1", A.class);
+		
+		//get Spring bean calss obj
+		A  oa=factory.getBean("a1",A.class);
 		System.out.println(oa);
 
 	}
