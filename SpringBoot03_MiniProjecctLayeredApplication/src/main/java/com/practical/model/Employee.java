@@ -1,16 +1,16 @@
 package com.practical.model;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
-	
-	private Integer emoNo;
-	private String empName;
-	private String job;
-	private Float sal;
+
+	public Integer empNo;
+	public String empName;
+	public String job;
+	public Float sal;
 }
