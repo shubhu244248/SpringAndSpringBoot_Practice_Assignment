@@ -38,6 +38,7 @@ public class EmployeeDAOImpl implements IEmployeeDAO {
 					emp.setEmpName(rs.getString(2));
 					emp.setJob(rs.getString(3));
 					emp.setSal(rs.getFloat(4));
+					listEmp.add(emp);
 				}
 			}
 
