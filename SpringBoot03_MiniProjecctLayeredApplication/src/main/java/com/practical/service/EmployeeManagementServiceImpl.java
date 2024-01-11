@@ -9,14 +9,14 @@ import com.practical.dao.IEmployeeDAO;
 import com.practical.model.Employee;
 
 @Service("empService")
-public class EmployeeManagementServiceImpl implements IEmployeeDAO {
+public class EmployeeManagementServiceImpl implements IEmployeeManagamentService {
 
 	@Autowired
 	private IEmployeeDAO dao;
 	
 	
 	@Override
-	public List<Employee> getEmpByDesg(String desg1, String desg2, String desg3) throws Exception {
+	public List<Employee> fetchEmpDetailsByDesg(String desg1, String desg2, String desg3) throws Exception {
 		List<Employee> listEmp = dao.getEmpByDesg(desg1, desg2, desg3);
 		
 		return listEmp;

@@ -17,21 +17,23 @@ import com.practical.model.Employee;
 @Repository("empDAO")
 public class EmployeeDAOImpl implements IEmployeeDAO {
 
-	private static final String GET_EMP_BY_DESG = " SELECT EMPNO, ENAME, JOB, SAL FROM EMP WHERE JOB (?,?,?) ORDER BY JOB";
+	private static final String GET_EMP_BY_DESG = " SELECT EMPNO, ENAME, JOB, SAL FROM EMP WHERE JOB IN (?,?,?) ORDER BY JOB";
 
 	@Autowired
 	private DataSource ds;
 
 	@Override
 	public List<Employee> getEmpByDesg(String desg1, String desg2, String desg3) throws Exception {
-		List<Employee> listEmp = new ArrayList<Employee>();
-		try (Connection conn = ds.getConnection(); PreparedStatement ps = conn.prepareStatement(GET_EMP_BY_DESG)) {
-
+		List<Employee> listEmp = null;
+		try (Connection conn = ds.getConnection(); 
+				PreparedStatement ps = conn.prepareStatement(GET_EMP_BY_DESG)) {
+			
 			ps.setString(1, desg1);
 			ps.setString(2, desg2);
 			ps.setString(3, desg3);
 
 			try (ResultSet rs = ps.executeQuery()) {
+				listEmp = new ArrayList<Employee>();
 				while (rs.next()) {
 					Employee emp = new Employee();
 					emp.setEmpNo(rs.getInt(1));
