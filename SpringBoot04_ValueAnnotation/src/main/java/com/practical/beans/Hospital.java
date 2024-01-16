@@ -28,8 +28,8 @@ public class Hospital {
 	@Value("${os.name}")
 	private String os;
 	
-//	@Autowired
-	@Value("#{labinfo}")
+	@Autowired
+//	@Value("#{labinfo}")
 	private LabTestInfo info;
 	
 	@Value("#{labinfo.bodyTestPrice+labinfo.rtpcrTestPrice}")    //SPEL based injection  
