@@ -1,5 +1,6 @@
 package com.practical.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -26,4 +27,11 @@ public class Hospital {
 
 	@Value("${os.name}")
 	private String os;
+	
+//	@Autowired
+	@Value("#{labinfo}")
+	private LabTestInfo info;
+	
+	@Value("#{labinfo.bodyTestPrice+labinfo.rtpcrTestPrice}")    //SPEL based injection  
+	private  float labTestBillAmt;
 }
