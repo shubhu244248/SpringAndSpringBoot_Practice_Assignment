@@ -1,0 +1,25 @@
+per:
+  info:
+    favColour:
+    - Blue
+    - Red
+    - Pink
+    - Black
+    idDetails:
+      adharCard: 787854546565
+      panCard: UIH454DH
+    jobDetails:
+      company: Virtusa
+      deptNo: 2022
+      desg: Full-Stack-Dev
+    perId: 244248
+    perName: Shubham
+    phoneNum:
+    - 7775093424
+    - 7770041236
+    - 8605577702
+    - 7770041236
+    studies:
+    - 10th
+    - 12th-PCMB
+    - B.Tech-Computer-Engineering
