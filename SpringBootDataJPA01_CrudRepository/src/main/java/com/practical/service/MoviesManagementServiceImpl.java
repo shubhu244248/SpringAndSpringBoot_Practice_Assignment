@@ -11,11 +11,18 @@ public class MoviesManagementServiceImpl  implements IMoviesManagementService{
 
 	@Autowired
 	private IMoviesRepository moviesRepository;
+	
 	@Override
 	public String saveMovies(Movie movie) {
 		// TODO Auto-generated method stub
 		moviesRepository.save(movie);
 		return "New Movie is Added";
+	}
+
+	@Override
+	public Long fetchData() {
+		Long countMovices = moviesRepository.count();
+		return  countMovices;
 	}
 
 }

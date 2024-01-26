@@ -16,16 +16,18 @@ public class CrudRepoTestRunner implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		Movie movie = new Movie();
+//		
+////		movie.setMovId(1001);
+//		movie.setMovName("3 Idiots");
+//		movie.setMovYear("2003");
+//		movie.setMovRating(5.0f);
+//		try {
+//			System.out.println(service.saveMovies(movie));
+//		} catch (Exception e) {
+//			e.printStackTrace();
+//		}
 		
-//		movie.setMovId(1001);
-		movie.setMovName("3 Idiots");
-		movie.setMovYear("2003");
-		movie.setMovRating(5.0f);
-		try {
-			System.out.println(service.saveMovies(movie));
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		System.out.println(service.fetchData());
 		
 	}
 

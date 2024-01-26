@@ -9,4 +9,5 @@ public interface IMoviesManagementService {
 	
 	public String saveMovies(Movie movie);
 
+	public Long fetchData();
 }
