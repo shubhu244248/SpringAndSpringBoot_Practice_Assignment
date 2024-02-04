@@ -41,6 +41,16 @@ public class CrudRepoTestRunner implements CommandLineRunner{
 			e.printStackTrace();
 		}
 		*/
+		/*	
+			try {
+				Iterable<Movie> moviesList = service.getAllMovies();
+				for(Movie movie2 : moviesList ) {
+					System.out.println(movie2);
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			*/
 		try {
 			Iterable<Movie> moviesList = service.getAllMovies();
 			for(Movie movie2 : moviesList ) {
