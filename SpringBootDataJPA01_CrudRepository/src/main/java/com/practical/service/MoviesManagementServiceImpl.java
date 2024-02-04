@@ -25,4 +25,16 @@ public class MoviesManagementServiceImpl  implements IMoviesManagementService{
 		return  countMovices;
 	}
 
+	@Override
+	public Boolean checkMovieById(Integer id) {
+		// TODO Auto-generated method stub
+		return moviesRepository.existsById(id);
+	}
+
+	@Override
+	public Iterable<Movie> getAllMovies() {
+		// TODO Auto-generated method stub
+		return moviesRepository.findAll();
+	}
+
 }
