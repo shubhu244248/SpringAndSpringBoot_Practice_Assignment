@@ -1,7 +1,9 @@
 package com.practical.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,11 +11,11 @@ import com.practical.entity.Movie;
 import com.practical.repository.IMoviesRepository;
 
 @Service
-public class MoviesManagementServiceImpl  implements IMoviesManagementService{
+public class MoviesManagementServiceImpl implements IMoviesManagementService {
 
 	@Autowired
 	private IMoviesRepository moviesRepository;
-	
+
 	@Override
 	public String saveMovies(Movie movie) {
 		// TODO Auto-generated method stub
@@ -24,7 +26,7 @@ public class MoviesManagementServiceImpl  implements IMoviesManagementService{
 	@Override
 	public Long fetchData() {
 		Long countMovices = moviesRepository.count();
-		return  countMovices;
+		return countMovices;
 	}
 
 	@Override
@@ -41,8 +43,19 @@ public class MoviesManagementServiceImpl  implements IMoviesManagementService{
 
 	@Override
 	public Iterable<Movie> getAllMoviesById(List<Integer> id) {
-		// TODO Auto-generated method stub
+		// TODO Auto-generated method stubOO
 		return moviesRepository.findAllById(id);
+	}
+
+	@Override
+	public Movie getMovieById(Integer id) {
+		// TODO Auto-generated method stub
+		Optional<Movie> opt = moviesRepository.findById(id);
+		if (opt.isPresent()) {
+			return opt.get();
+		} else {
+			throw new IllegalArgumentException("No record is their");
+		}
 	}
 
 }
