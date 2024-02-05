@@ -50,12 +50,36 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 	@Override
 	public Movie getMovieById(Integer id) {
 		// TODO Auto-generated method stub
+		return moviesRepository.findById(id).orElse(new Movie());
+	}
+
+	
+
+	/*@Override
+	public Movie getMovieById(Integer id) {
+		// TODO Auto-generated method stub
+		return moviesRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Record not found " + id));
+	}*/
+
+	
+	
+	/*@Override
+	public Movie getMovieById(Integer id) {
+		// TODO Auto-generated method stub
 		Optional<Movie> opt = moviesRepository.findById(id);
 		if (opt.isPresent()) {
 			return opt.get();
 		} else {
 			throw new IllegalArgumentException("No record is their");
 		}
-	}
+	}*/
 
+	
+	@Override
+	public Optional<Movie> getMovieByIdAnother(Integer id) {
+		// TODO Auto-generated method stub
+		Optional<Movie> opt = moviesRepository.findById(id);
+		
+		return opt.isEmpty() ? Optional.empty():opt;
+	}
 }

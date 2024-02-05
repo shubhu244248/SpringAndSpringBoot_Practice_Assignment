@@ -20,4 +20,7 @@ public interface IMoviesManagementService {
 	public Iterable<Movie> getAllMoviesById(List<Integer> id);
 	
 	public Movie getMovieById(Integer id);
+	
+	public Optional<Movie> getMovieByIdAnother(Integer id);
+	
 }

@@ -1,5 +1,7 @@
 package com.practical.runner;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -9,15 +11,15 @@ import com.practical.entity.Movie;
 import com.practical.service.IMoviesManagementService;
 
 @Component
-public class CrudRepoTestRunner implements CommandLineRunner{
+public class CrudRepoTestRunner implements CommandLineRunner {
 
 	@Autowired
 	private IMoviesManagementService service;
-	
+
 	@Override
 	public void run(String... args) throws Exception {
 		Movie movie = new Movie();
-		
+
 		/*movie.setMovId(1002);
 		movie.setMovName("Aspirant");
 		movie.setMovYear("2019");
@@ -27,14 +29,13 @@ public class CrudRepoTestRunner implements CommandLineRunner{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
-		
+
 		/*	try {
 				System.out.println("Movie Count"+service.fetchData());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}*/
-		
+
 		/*try {
 			System.out.println("Movie is Exist or Not : "+service.checkMovieById(3));
 		} catch (Exception e) {
@@ -51,7 +52,7 @@ public class CrudRepoTestRunner implements CommandLineRunner{
 				e.printStackTrace();
 			}
 			*/
-		
+
 		/*try {
 			Iterable<Movie> moviesList = service.getAllMovies();
 			for(Movie movie2 : moviesList ) {
@@ -60,10 +61,22 @@ public class CrudRepoTestRunner implements CommandLineRunner{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
-		try {
+
+		/*try {
 			
 			System.out.println("Movie detailed : "+service.getMovieById(2));
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+
+		try {
+
+			Optional<?> opt = service.getMovieByIdAnother(2);
+			if(!opt.isEmpty()) {
+				System.out.println("Movies Details : "+opt.get());
+			} else {
+				System.out.println("Record not found");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
