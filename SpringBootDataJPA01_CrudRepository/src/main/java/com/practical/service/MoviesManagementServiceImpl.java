@@ -1,14 +1,16 @@
 package com.practical.service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.boot.model.naming.IllegalIdentifierException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.practical.entity.Movie;
 import com.practical.repository.IMoviesRepository;
+
+import jakarta.persistence.criteria.CriteriaBuilder.In;
 
 @Service
 public class MoviesManagementServiceImpl implements IMoviesManagementService {
@@ -82,4 +84,19 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		
 		return opt.isEmpty() ? Optional.empty():opt;
 	}
+
+	@Override
+	public String groupMoviesRegistration(List<Movie> movies) {
+		// TODO Auto-generated method stub
+		Iterable<Movie> savedMovies = moviesRepository.saveAll(movies);
+		List<Integer> listIds = new ArrayList<Integer>();
+		if(savedMovies != null && ((List<Movie>) savedMovies).size() > 0) {
+			savedMovies.forEach(m-> {
+				listIds.add(m.getMovId());
+			});
+		}
+		return listIds.toString()+"Movies are saved";
+	}
+	
+	
 }

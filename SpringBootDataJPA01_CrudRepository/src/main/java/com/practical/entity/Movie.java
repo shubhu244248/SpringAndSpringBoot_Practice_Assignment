@@ -8,10 +8,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "movies_data")
 public class Movie implements Serializable{
 	
@@ -21,4 +25,11 @@ public class Movie implements Serializable{
 	private String movName;
 	private String movYear;
 	private Float movRating;
+	
+	public Movie(String movName, String movYear, Float movRating) {
+		super();
+		this.movName = movName;
+		this.movYear = movYear;
+		this.movRating = movRating;
+	}
 }

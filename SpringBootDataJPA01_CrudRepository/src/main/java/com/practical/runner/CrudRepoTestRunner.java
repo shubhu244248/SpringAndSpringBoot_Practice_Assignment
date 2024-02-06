@@ -1,11 +1,10 @@
 package com.practical.runner;
 
-import java.util.Optional;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.practical.entity.Movie;
 import com.practical.service.IMoviesManagementService;
@@ -69,17 +68,29 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}*/
 
+		/*	try {
+		
+				Optional<?> opt = service.getMovieByIdAnother(2);
+				if(!opt.isEmpty()) {
+					System.out.println("Movies Details : "+opt.get());
+				} else {
+					System.out.println("Record not found");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+			}*/
+
 		try {
 
-			Optional<?> opt = service.getMovieByIdAnother(2);
-			if(!opt.isEmpty()) {
-				System.out.println("Movies Details : "+opt.get());
-			} else {
-				System.out.println("Record not found");
-			}
+			String result = service.groupMoviesRegistration(
+					List.of(new Movie("12th failed", "2023", 5.0f), new Movie("Cubicles", "2020", 5.0f)));
+			System.out.println(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		
+		
 	}
 
 }

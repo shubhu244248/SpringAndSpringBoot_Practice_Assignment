@@ -23,4 +23,5 @@ public interface IMoviesManagementService {
 	
 	public Optional<Movie> getMovieByIdAnother(Integer id);
 	
+	public String groupMoviesRegistration(List<Movie> movies);
 }
