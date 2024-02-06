@@ -89,8 +89,7 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 			e.printStackTrace();
 		}
 		*/
-		
-		
+
 		/*try {
 			movie = new Movie(1, "Jamtara", "2005", 5.0f);
 			String result = service.saveMovies(movie);
@@ -99,11 +98,20 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}*/
-		
-		try {
+
+		/*try {
 			
 			System.out.println(service.deleteById(4));
 		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}*/
+
+		try {
+			
+			movie.setMovId(3);
+			System.out.println(service.deleteMovies(movie));
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

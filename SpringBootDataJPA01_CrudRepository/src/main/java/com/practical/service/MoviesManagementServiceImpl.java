@@ -133,8 +133,27 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		Movie movie = moviesRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Movie not found"));
 
 		moviesRepository.deleteById(id);
-		
+
 		return "Record Deleted";
 	}
 
+	/*@Override
+	public String deleteMovies(Movie movie) {
+		// TODO Auto-generated method stub
+		moviesRepository.delete(movie);
+		return "Record Deleted";
+	}*/
+
+	@Override
+	public String deleteMovies(Movie movie) {
+		// TODO Auto-generated method stub
+		Optional<Movie> opt = moviesRepository.findById(movie.getMovId());
+		if (opt.isPresent()) {
+			moviesRepository.delete(movie);
+			return "Record Deleted";
+		} else {
+			return "Record not found";
+		}
+
+	}
 }
