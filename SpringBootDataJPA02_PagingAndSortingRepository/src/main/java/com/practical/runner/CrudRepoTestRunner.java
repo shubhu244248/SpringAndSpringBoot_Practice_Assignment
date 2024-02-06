@@ -16,9 +16,15 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 		// TODO Auto-generated method stub
-		Iterable< Movie> iterable = service.findAllMoviesByOrder(true, "movName");
-		System.out.print(iterable);
-	}
+		try {
+			Iterable<Movie> iterable = service.findAllMoviesByOrder(true, "movName");
+			iterable.forEach(System.out::println);
 
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+	}
 
 }
