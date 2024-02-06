@@ -91,16 +91,22 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 		*/
 		
 		
-		try {
+		/*try {
 			movie = new Movie(1, "Jamtara", "2005", 5.0f);
 			String result = service.saveMovies(movie);
 			System.out.println(result);
 		
 		} catch (Exception e) {
 			e.printStackTrace();
+		}*/
+		
+		try {
+			
+			System.out.println(service.deleteById(4));
+		
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		
-		
 	}
 
 }

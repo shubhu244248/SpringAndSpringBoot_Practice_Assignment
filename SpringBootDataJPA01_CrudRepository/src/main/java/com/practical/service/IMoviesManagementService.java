@@ -26,4 +26,6 @@ public interface IMoviesManagementService {
 	public String updateMovieDetails(Integer movId, String movName, String movYear, Float movRating);
 
 	public String updateMovie(Movie movie);
+	
+	public String deleteById(Integer id);
 }
