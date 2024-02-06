@@ -156,4 +156,17 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		}
 
 	}
+
+	@Override
+	public String deleteAll() {
+		// TODO Auto-generated method stub
+		long count = moviesRepository.count();
+		if(count != 0) {
+			moviesRepository.deleteAll();
+			return count+" no.of records are deleted";
+		} else {
+			return "their is no record";
+		}
+		
+	}
 }

@@ -30,4 +30,8 @@ public interface IMoviesManagementService {
 	public String deleteById(Integer id);
 	
 	public String deleteMovies(Movie movie);
+	
+	public String deleteAll();
+	
+	
 }
