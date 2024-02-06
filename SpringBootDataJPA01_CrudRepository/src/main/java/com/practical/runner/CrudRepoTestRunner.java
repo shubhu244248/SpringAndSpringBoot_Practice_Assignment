@@ -80,15 +80,25 @@ public class CrudRepoTestRunner implements CommandLineRunner {
 				e.printStackTrace();
 			}*/
 
-		try {
-
+		/*try {
+		
 			String result = service.groupMoviesRegistration(
 					List.of(new Movie("12th failed", "2023", 5.0f), new Movie("Cubicles", "2020", 5.0f)));
 			System.out.println(result);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		*/
 		
+		
+		try {
+			movie = new Movie(1, "Jamtara", "2005", 5.0f);
+			String result = service.saveMovies(movie);
+			System.out.println(result);
+		
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		
 	}

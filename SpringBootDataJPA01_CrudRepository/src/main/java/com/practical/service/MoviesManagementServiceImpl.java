@@ -55,16 +55,12 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		return moviesRepository.findById(id).orElse(new Movie());
 	}
 
-	
-
 	/*@Override
 	public Movie getMovieById(Integer id) {
 		// TODO Auto-generated method stub
 		return moviesRepository.findById(id).orElseThrow(()-> new IllegalArgumentException("Record not found " + id));
 	}*/
 
-	
-	
 	/*@Override
 	public Movie getMovieById(Integer id) {
 		// TODO Auto-generated method stub
@@ -76,13 +72,12 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		}
 	}*/
 
-	
 	@Override
 	public Optional<Movie> getMovieByIdAnother(Integer id) {
 		// TODO Auto-generated method stub
 		Optional<Movie> opt = moviesRepository.findById(id);
-		
-		return opt.isEmpty() ? Optional.empty():opt;
+
+		return opt.isEmpty() ? Optional.empty() : opt;
 	}
 
 	@Override
@@ -90,13 +85,40 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		// TODO Auto-generated method stub
 		Iterable<Movie> savedMovies = moviesRepository.saveAll(movies);
 		List<Integer> listIds = new ArrayList<Integer>();
-		if(savedMovies != null && ((List<Movie>) savedMovies).size() > 0) {
-			savedMovies.forEach(m-> {
+		if (savedMovies != null && ((List<Movie>) savedMovies).size() > 0) {
+			savedMovies.forEach(m -> {
 				listIds.add(m.getMovId());
 			});
 		}
-		return listIds.toString()+"Movies are saved";
+		return listIds.toString() + "Movies are saved";
 	}
-	
-	
+
+	@Override
+	public String updateMovieDetails(Integer movId, String movName, String movYear, Float movRating) {
+		// TODO Auto-generated method stub
+		Optional<Movie> opt = moviesRepository.findById(movId);
+		if (opt.isPresent()) {
+			Movie movie = opt.get();
+			movie.setMovName(movName);
+			movie.setMovYear(movYear);
+			movie.setMovRating(movRating);
+			return "Details updated";
+		} else {
+			return "Movie not found";
+		}
+	}
+
+	@Override
+	public String updateMovie(Movie movie) {
+		// TODO Auto-generated method stub
+		Optional<Movie> opt = moviesRepository.findById(movie.getMovId());
+		if (opt.isPresent()) {
+			moviesRepository.save(movie);
+			return "Details updated";
+		} else {
+			return "Movie not found";
+		}
+
+	}
+
 }

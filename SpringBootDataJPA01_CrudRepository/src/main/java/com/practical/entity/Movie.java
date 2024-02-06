@@ -11,12 +11,13 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @Entity
+@Table(name = "movies_data")
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "movies_data")
+@RequiredArgsConstructor
 public class Movie implements Serializable{
 	
 	@Id
