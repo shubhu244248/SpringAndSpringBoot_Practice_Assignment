@@ -108,6 +108,13 @@ public class MoviesManagementServiceImpl implements IMoviesManagementService {
 		}
 	}
 
+	/*@Override
+	public String updateMovie(Movie movie) {
+		// TODO Auto-generated method stub
+		moviesRepository.save(movie);
+		return "Movie Updated";
+	}*/
+
 	@Override
 	public String updateMovie(Movie movie) {
 		// TODO Auto-generated method stub
